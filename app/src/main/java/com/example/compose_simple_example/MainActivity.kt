@@ -46,29 +46,20 @@ fun PreviewConversation(){
     }
 }
 
-private fun populateList(): ArrayList<Message> {
-    val userDefaultList = ArrayList<Message>()
-    userDefaultList.add(
-        Message(
-            author = "Alfredo",
-            body = "Hola ¿cómo estan?",
-            gender = Gender.MALE
-        )
+private fun populateList() = arrayListOf(
+    Message(
+        author = "Alfredo",
+        body = "Hola ¿cómo estan?",
+        gender = Gender.MALE
+    ),
+    Message(
+        author = "Carlos",
+        body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec dolor at tellus consequat posuere in et massa. Etiam eu sollicitudin ante. ",
+        gender = Gender.MALE
+    ),
+    Message(
+        author = "Isabel",
+        body = "Holaaaaaa",
+        gender = Gender.FEMALE
     )
-    userDefaultList.add(
-        Message(
-            author = "Carlos",
-            body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec dolor at tellus consequat posuere in et massa. Etiam eu sollicitudin ante. ",
-            gender = Gender.MALE
-        )
-    )
-    userDefaultList.add(
-        Message(
-            author = "Isabel",
-            body = "Holaaaaaa",
-            gender = Gender.FEMALE
-        )
-    )
-    return  userDefaultList
-}
-
+)
