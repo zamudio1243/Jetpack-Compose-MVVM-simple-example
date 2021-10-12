@@ -49,7 +49,8 @@ fun PreviewConversation(){
 private fun populateList() = arrayListOf(
     Message(
         author = "Jorge",
-        body = "Hola ¿cómo estan??", //calando PUSH
+        body = "Hola ¿cómo estan??", //calando PUSH 
+                                   //y ahora la actualizacion en visual
         gender = Gender.MALE
     ),
     Message(
