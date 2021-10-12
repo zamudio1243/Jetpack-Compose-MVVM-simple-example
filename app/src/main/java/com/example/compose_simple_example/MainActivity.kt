@@ -48,8 +48,8 @@ fun PreviewConversation(){
 
 private fun populateList() = arrayListOf(
     Message(
-        author = "Alfredo",
-        body = "Hola ¿cómo estan?",
+        author = "Jorge",
+        body = "Hola ¿cómo estan??", //calando PUSH
         gender = Gender.MALE
     ),
     Message(
