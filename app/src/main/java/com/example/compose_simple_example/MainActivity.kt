@@ -62,7 +62,6 @@ fun Conversation(messagesListViewModel: MessagesListViewModel = viewModel()){
                             author = "Yo",
                             body = textFieldState
                         )
-                        println(textFieldState)
                         messagesListViewModel.addMessage(msg)
                     },
                     modifier = Modifier.padding(vertical = 16.dp)
