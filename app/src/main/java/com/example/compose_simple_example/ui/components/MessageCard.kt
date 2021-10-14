@@ -37,7 +37,7 @@ fun MessageCard(msg: Message){
                 .size(40.dp)
                 // Le da forma de circulo a la imagen
                 .clip(CircleShape)
-                .border(1.5.dp, MaterialTheme.colors.secondary, CircleShape)
+                .border(1.5.dp, MaterialTheme.colors.secondary, CircleShape),
         )
         // Añade espacio horizontal entre la imagen y la columna
         Spacer(modifier = Modifier.width(8.dp))
@@ -68,7 +68,9 @@ fun MessageCard(msg: Message){
                 // Este color irá cambiante gradualmente de color primario a surface
                 color = surfaceColor,
                 // animateContentSize cambiará el tamaño del Surface gradualmente
-                modifier = Modifier.animateContentSize().padding(1.dp),
+                modifier = Modifier
+                    .animateContentSize()
+                    .padding(1.dp),
             ){
                 Text(
                     text = msg.body,
