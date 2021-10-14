@@ -26,9 +26,9 @@ import com.example.compose_simple_example.data.Gender
 fun CardPOKEMON(namePokemon: String = "nombrePokemon", tipo: String = "tipoPokemon") {
     Card(
         modifier = Modifier
-            .padding(15.dp)
+            .padding(16.dp)
             .clickable { },
-        elevation = 10.dp
+        elevation = 12.dp
     ) {
         Column() {
             Row(
@@ -41,7 +41,7 @@ fun CardPOKEMON(namePokemon: String = "nombrePokemon", tipo: String = "tipoPokem
 
                 // InfoPokemonInCard(namePokemon = namePokemon, tipo = tipo)
 
-                Column() {
+                Column(modifier = Modifier.weight(1f)) {
 
                     Text(
                         text = namePokemon,
@@ -57,8 +57,6 @@ fun CardPOKEMON(namePokemon: String = "nombrePokemon", tipo: String = "tipoPokem
 
 
 
-                // Añade espacio horizontal entre la columna y el icono
-                Spacer(modifier = Modifier.width(50.dp))
 
                 IconoTipo(tipo = tipo)
 
@@ -84,37 +82,6 @@ fun CardPOKEMON(namePokemon: String = "nombrePokemon", tipo: String = "tipoPokem
                 }, thickness = 1.dp
             )
 
-        }
-
-
-    }
-}
-
-@Preview
-@Composable
-fun InfoPokemonInCard(namePokemon: String = "Nombre", tipo: String = "tipoo") {
-    Column() {
-        Row(
-            modifier = Modifier.padding(all = 8.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Column() {
-
-                Text(
-                    text = namePokemon,
-                    style = MaterialTheme.typography.subtitle1,
-                    color = MaterialTheme.colors.secondaryVariant
-                )
-                Text(
-                    text = tipo,
-                    style = MaterialTheme.typography.subtitle2,
-                    color = MaterialTheme.colors.primaryVariant
-                )
-            }
-            // Añade espacio horizontal entre la columna y el icono
-            Spacer(modifier = Modifier.width(50.dp))
-
-            IconoTipo(tipo = tipo)
         }
 
 
@@ -177,76 +144,5 @@ fun PreviewCardPOKEMON(){
 }
 
 
-/*
-@Composable
-fun PokemonCard(msg: Message){
-    // Agrega padding al rededor del mensaje
-    Row(modifier = Modifier.padding(all = 8.dp)) {
-        Image(
-            painter = when(msg.gender){
-                Gender.MALE -> painterResource(id = R.drawable.he)
-                Gender.FEMALE -> painterResource(id = R.drawable.she)
-                Gender.UNKNOWN -> painterResource(id = R.drawable.she)
-            },
-            contentDescription = "gender",
-            modifier = Modifier
-                // Coloca el tamaño de la imagen a 40 dp
-                .size(40.dp)
-                // Le da forma de circulo a la imagen
-                .clip(RectangleShape)
 
-        )
-        // Añade espacio horizontal entre la imagen y la columna
-        Spacer(modifier = Modifier.width(8.dp))
-
-        // Se mantiene el estado de si es mensaje esta expandido o no
-        // En esta variable
-        var isExpanded by remember { mutableStateOf(false) }
-
-
-        // surfaceColor se actualizará gradualmente de un color a otro
-        val surfaceColor: Color by animateColorAsState(
-            if (isExpanded) MaterialTheme.colors.primary else MaterialTheme.colors.surface,
-        )
-
-        // Alterna la variable isExpanded cuando hacemos click en esta Columna
-        Column(modifier = Modifier.clickable { isExpanded = !isExpanded }) {
-            Text(
-                text = msg.author,
-                style = MaterialTheme.typography.subtitle2,
-                color = MaterialTheme.colors.secondaryVariant
-            )
-
-            // Añade espacio horizontal entre la autor y el mensaje
-            Spacer(modifier = Modifier.width(4.dp))
-
-            Surface(
-                shape = MaterialTheme.shapes.medium, elevation = 1.dp,
-                // Este color irá cambiante gradualmente de color primario a surface
-                color = surfaceColor,
-                // animateContentSize cambiará el tamaño del Surface gradualmente
-                modifier = Modifier
-                    .animateContentSize()
-                    .padding(1.dp),
-            ){
-                Text(
-                    text = msg.body,
-                    modifier = Modifier.padding(all = 4.dp),
-                    // Si el mensaje está expandido, se muestra el contenido completo
-                    // de otra forma solo se mostrará la primera linea
-                    maxLines = if (isExpanded) Int.MAX_VALUE else 1,
-                    style = MaterialTheme.typography.body2
-                )
-            }
-        }
-    }
-}
-
-@Preview
-@Composable
-fun PreviewPokemonCard(){
-    PokemonCard(
-        msg = Message("Colleague", "Hey, take a look at Jetpack Compose, it's great!")
-    )
-}*/
 
